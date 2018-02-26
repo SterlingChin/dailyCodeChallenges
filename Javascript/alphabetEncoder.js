@@ -9,7 +9,7 @@ const encoder = str => {
   str.replace(/[^a-zA-Z]/g, "").split('').map(x => {
     encodedMessage.push(a.indexOf(x.toLowerCase())+1);
   });
-  return encodedMessage;
+  return encodedMessag.join(' ');
 };
 
 encoder("The sunset sets at twelve o' clock.");
