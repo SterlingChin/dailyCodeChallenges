@@ -3,13 +3,13 @@
 // e.g. [ { value: 'A', suit: 'hearts' }, { value: 'A', suit: 'diamonds' },...]
 
 const values = ['A','2','3','4','5','6','7','8','9','10','J','Q','K',];
-const suits = ['hearts','diamonds','clubs','spades',];
+const suits = ['clubs','diamonds','hearts','spades',];
 
 const deckBuilder = () => {
   let deck = [];
-  values.map(x => {
-    suits.map(y => {
-      deck.push({value: x, suit: y});
+  suits.map(x => {
+    values.map(y => {
+      deck.push({ suit: y, value: x});
     });
   });
   return deck;
