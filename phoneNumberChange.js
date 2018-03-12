@@ -47,6 +47,6 @@ newNum.splice(9, 0, '-');
 return newNum.join('');
 };
 
-phoneNumber('1-800-1USBANK');
+phoneNumber('1-800-COMCAST');
 
 //See the code in action here: https://repl.it/@SterlingChin/ConsiderableDependableScreenscraper
