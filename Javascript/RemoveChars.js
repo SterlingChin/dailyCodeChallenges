@@ -1,16 +1,13 @@
-// Create a program that will take user input and tell them their age in months, days, hours, and minutes.
+// Write a function that takes two strings and removes from the first string any character that appears in the second string.
 
-// E.g. 18 --> 216 months, 6480 days, 155520 hours, and 388800 minutes
-// #365daysofcode
+// E.g. ('Daily Programmer', 'aeiou ') --> 'DlyPrgrmmr'.
 
-const age = (num) => {
-  let months = num * 12;
-  let days = num * 365.25;
-  let hours = days * 24;
-  let minutes = hours * 60;
-  return months + ' months, ' + days + ' days, ' + hours + ' hours, ' + minutes + ' minutes'
+// note: the space in 'Daily Programmer' is removed
+
+const removeLetters = (str1, str2) => {
+  return str1.replace(new RegExp('['+str2+']', 'g'), '');
 };
 
-age(35);
+removeLetters('Daily Programmer', 'aeiou ');
 
-// See the code in action here: https://repl.it/@SterlingChin/MelodicDemandingBackslash
+//See the code in action here: https://repl.it/@SterlingChin/OnlyWorthyTrapezoids
