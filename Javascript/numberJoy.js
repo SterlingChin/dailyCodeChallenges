@@ -7,11 +7,22 @@
 // and 19 * 91 = 1729 --> the number that we started with.
 // Complete the function which tests if a positive integer n is Harshad number, and returns True if the product of its digit sum and its digit sum reversed equals n; otherwise return False.
 
+
+// Using .map()
 const numberJoy = n => {
     let digit = 0;
     n.toString().split('').map(x => {
         digit += parseInt(x);
     });
+    return (digit * parseInt(digit.toString().split('').reverse().join(''))) === n;
+};
+
+
+// Using .reduce()
+const numberJoy = n => {
+    const digit = n.toString().split('').reduce((sum, digit) => {
+        return sum + parseInt(digit);
+    }, 0);
     return (digit * parseInt(digit.toString().split('').reverse().join(''))) === n;
 };
 
