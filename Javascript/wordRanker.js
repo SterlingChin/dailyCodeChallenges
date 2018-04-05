@@ -1,0 +1,30 @@
+// Write a program that takes a filename and a parameter n and prints the n most common words in the file, and the count of their occurrences, in descending order.
+
+const taleOfTwoCities = 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way--in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only. There were a king with a large jaw and a queen with a plain face, on the throne of England; there were a king with a large jaw and a queen with a fair face, on the throne of France. In both countries it was clearer than crystal to the lords of the State preserves of loaves and fishes, that things in general were settled for ever. It was the year of Our Lord one thousand seven hundred and seventy-five. Spiritual revelations were conceded to England at that favoured period, as at this. Mrs. Southcott had recently attained her five-and-twentieth blessed birthday, of whom a prophetic private in the Life Guards had heralded the sublime appearance by announcing that arrangements were made for the swallowing up of London and Westminster. Even the Cock-lane ghost had been laid only a round dozen of years, after rapping out its messages, as the spirits of this very year last past (supernaturally deficient in originality) rapped out theirs. Mere messages in the earthly order of events had lately come to the English Crown and People, from a congress of British subjects in America: which, strange to relate, have proved more important to the human race than any communications yet received through any of the chickens of the Cock-lane brood.';
+const christmasCarol = 'Marley was dead: to begin with. There is no doubt whatever about that. The register of his burial was signed by the clergyman, the clerk, the undertaker, and the chief mourner. Scrooge signed it. And Scrooge\'s name was good upon \'Change, for anything he chose to put his hand to. Old Marley was as dead as a door-nail. Mind! I do\'t mean to say that I know, of my own knowledge, what there is particularly dead about a door-nail. I might have been inclined, myself, to regard a coffin-nail as the deadest piece of ironmongery in the trade. But the wisdom of our ancestors is in the simile; and my unhallowed hands shall not disturb it, or the Country\'s done for. You will therefore permit me to repeat, emphatically, that Marley was as dead as a door-nail. Scrooge knew he was dead? Of course he did. How could it be otherwise? Scrooge and he were partners for I don\'t know how many years. Scrooge was his sole executor, his sole administrator, his sole assign, his sole residuary legatee, his sole friend, and sole mourner. And even Scrooge was not so dreadfully cut up by the sad event, but that he was an excellent man of business on the very day of the funeral, and solemnised it with an undoubted bargain. The mention of Marley\'s funeral brings me back to the point I started from. There is no doubt that Marley was dead. This must be distinctly understood, or nothing wonderful can come of the story I am going to relate. If we were not perfectly convinced that Hamlet\'s Father died before the play began, there would be nothing more remarkable in his taking a stroll at night, in an easterly wind, upon his own ramparts, than there would be in any other middle-aged gentleman rashly turning out after dark in a breezy spot -- say Saint Paul\'s Churchyard for instance -- literally to astonish his son\'s weak mind. Scrooge never painted out Old Marley\'s name. There it stood, years afterwards, above the warehouse door: Scrooge and Marley. The firm was known as Scrooge and Marley. Sometimes people new to the business called Scrooge Scrooge, and sometimes Marley, but he answered to both names. It was all the same to him. Oh! But he was a tight-fisted hand at the grind- stone, Scrooge! a squeezing, wrenching, grasping, scraping, clutching, covetous, old sinner! Hard and sharp as flint, from which no steel had ever struck out generous fire; secret, and self-contained, and solitary as an oyster. The cold within him froze his old features, nipped his pointed nose, shrivelled his cheek, stiffened his gait; made his eyes red, his thin lips blue; and spoke out shrewdly in his grating voice. A frosty rime was on his head, and on his eyebrows, and his wiry chin. He carried his own low temperature always about with him; he iced his office in the dogdays; and didn\'t thaw it one degree at Christmas'
+
+const theBigCheck = (f, n) => {
+    let rankings = {};
+    f.replace(/[^a-z A-Z]/g, '').split(' ').map(word => {
+        const lowerCaseWord = word.toLowerCase();
+        if(!!rankings[lowerCaseWord]) {
+            rankings[lowerCaseWord] += 1;
+        } else {
+            rankings[lowerCaseWord] = 1;
+        }
+    });
+    let sortedRankings = Object.keys(rankings).sort(function(a, b) { return rankings[b] - rankings[a] });
+    let answer = '';
+    for(let i = 0; i < n; i++) {
+        if(i < n-1) {
+            answer += sortedRankings[i] + ': ' + rankings[sortedRankings[i]] + ', ';
+        } else {
+            answer += sortedRankings[i] + ': ' + rankings[sortedRankings[i]] + '.';
+        }
+    }
+    return 'Here are your top ' + n + ' word(s): ' + answer;
+};
+console.log(theBigCheck(taleOfTwoCities, 5));
+theBigCheck(christmasCarol, 5);
+
+// See the code in action here: https://repl.it/@SterlingChin/ThankfulGeneralGame

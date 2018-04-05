@@ -17,13 +17,9 @@ const isPrime = n => {
 const printEmirp = n => {
     let primes = [];
     for(let i = 13; i <= n; i++) {
-        if(isPrime(i)) {
-            let inverse = parseInt(i.toString().split('').reverse().join(''));
-            if(isPrime(inverse)) {
-                if(i !== inverse) {
-                primes.push(i);
-                }
-            }
+        let inverse = parseInt(i.toString().split('').reverse().join(''));
+        if(isPrime(i) && isPrime(inverse) && i !== inverse) {
+            primes.push(i);
         }
     }
     return primes;
