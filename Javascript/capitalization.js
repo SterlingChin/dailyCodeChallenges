@@ -1,7 +1,5 @@
 // Write a function that capitalizes the first letter of every word in the string and accepts a second argument a list of exceptions.
-
 // The first word of every title should ALWAYS have a capital leter.
-
 // E.g. ('pizza is good', ['is']) --> 'Pizza is Good'
 
 const capitalization = (n, x) => {
@@ -12,7 +10,7 @@ const capitalization = (n, x) => {
         return word;
     }).join(' ');
 };
-   
+
 const str1 = 'something like this is going to work if i write javascript correctly';
 
 console.log(capitalization(str1, ['like', 'going','write', 'correctly']));
